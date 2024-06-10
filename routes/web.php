@@ -53,7 +53,7 @@ Route::controller(CharacteristicController::class)->middleware((['auth']))->grou
 });
 
  Route::controller(ReservationController::class)->middleware((['auth']))->group(function(){
-    Route::get('/reservation','index')->name('reservation.index')->middleware(['permission:view my reservation|view all reservation']);
+    Route::get('/reservation','index')->name('reservation.index');
     Route::post('/reserve/{id}','store')->name('reservation.store');
     Route::get('/check/{id}','show')->name('checkreservation');
     Route::get('/validate/{id}','validation_reservation')->name('validation_reservation');
