@@ -2,6 +2,7 @@
 
 ## MarAppart
 
+
 ### 1. Présentation :
 
 un site spécialisé dans la location d'appartements au Maroc qui offrira aux consommateurs la possibilité de trouver des appartements à louer.
@@ -70,6 +71,7 @@ Une page qui permet aux utilisateurs de créer un compte ou de se connecter à u
 ●  MySQL for the database
 ●  Auth:  package Jetstream
 ●  Role & Permission : Spatie 
+
 
 
 
