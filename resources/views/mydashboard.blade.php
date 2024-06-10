@@ -2,11 +2,12 @@
 <body class="">
 <x-app-layout>
   @include('header')
-    <x-slot name="header">
   
-    
-            
-     
+    <x-slot name="header">
+
+
+
+
 
         <!-- Page Content  -->
         <div id="content">
@@ -119,7 +120,7 @@
                     <div class="col-12">
                         <div class="bg-light rounded  h-50 p-4">
                           <div class=" d-flex justify-content-start ">
-                            <div><h6 class="mb-4">Properties Table</h6></div>                      
+                            <div><h6 class="mb-4">Properties Table</h6></div>
                           </div>
                             <div class="table-responsive">
                                 <table class="table  table-striped">
@@ -147,12 +148,12 @@
                                         <tr>
                                             <th scope="row">1</th>
 
-                    
-                                            
+
+
                                             <div class="modal fade" id="exampleModal{{$loop->index}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                               <div class="modal-dialog">
                                                 <div class="modal-content">
-                                                 
+
                                                   <div class="modal-header">
                                                     <h1 class="modal-title fs-5" id="exampleModalLabel">Images </h1>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -165,17 +166,17 @@
                                                 </div>
                                               </div>
                                             </div>
-                                            
-                                            <td> 
+
+                                            <td>
                                             <button type="button" class=" proper-btn btn btn-dark mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal{{$loop->index}}" data-bs-whatever="@mdo">view images</button>
                                           </td>
-                                            
+
                                             <td>{{$appartement->name}}</td>
                                             <td>{{$appartement->status}}</td>
                                             <td>{{$appartement->address}}</td>
-                                            <td>{{$appartement->city->name}}</td> 
+                                            <td>{{$appartement->city->name}}</td>
                                             <td>{{$appartement->description}}</td>
-                                            <td>{{$appartement->person_nombre}}</td> 
+                                            <td>{{$appartement->person_nombre}}</td>
                                             <td>{{$appartement->prix}}</td>
                                             <td>{{$appartement->space}}</td>
                                             {{-- @foreach ($appartement->characteristics as $characteristic)
@@ -212,14 +213,24 @@
                                 </table>
                             </div>
                         </div>
-                        
+
 
                     <!-- second table  -->
-             
+
         </div>
-  
+
 
     <!-- modal -->
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content ">
@@ -237,10 +248,10 @@
             <label for="recipient-name" class="col-form-label" >choisir votre Ville</label>
         <select class="form-select" aria-label="Default select example" name="city">
             @foreach($cities as $city)
-              <option value="{{$city->id}}">{{$city->name}}</option>  
+              <option value="{{$city->id}}">{{$city->name}}</option>
               @endforeach
         </select>
-        
+
           <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Adresse</label>
             <input type="text" class="form-control" name="localisation" id="recipient-name">
@@ -257,11 +268,11 @@
             <label for="recipient-name" class="col-form-label">Prix</label>
             <input type="number" class="form-control" name="prix" id="recipient-name" step="0.01" min="0">
           </div>
-         
+
         <label for="recipient-name" class="col-form-label" for="tags">Sélectionnez des Caracteristique:</label>
             <select class="form-select" aria-label="Default select example" name="caracteristique[]" id="tags" multiple>
                 @foreach($characteristics as $characteristic)
-                <option value="{{$characteristic->id}}">{{$characteristic->name}}</option>  
+                <option value="{{$characteristic->id}}">{{$characteristic->name}}</option>
                 @endforeach
             </select>
             <div class="mb-3">
@@ -272,8 +283,8 @@
         <select class="form-select" aria-label="Default select example" name="nombrePersonne">
             <option selected>Nombre de Personne</option>
             @for($i=1;$i<=6;$i++)
-            <option value="{{$i}}">{{$i}}</option>  
-            @endfor;  
+            <option value="{{$i}}">{{$i}}</option>
+            @endfor;
         </select>
                 <div class="mb-3">
             <label for="recipient-name" class="col-form-label">Espaces</label>
@@ -321,14 +332,14 @@
 {{-- rechrche cite--}}
 
  {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>       
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
     <!-- side barr  --> --}}
 
 </x-slot>
 
-   
+
 </x-app-layout>
 </body>
 

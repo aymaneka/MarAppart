@@ -39,7 +39,7 @@ Route::middleware([
 
 Route::controller(AppartementController::class)->middleware((['auth']))->group(function(){
     Route::post('/appartementt','store')->name('appartement.store');
-    Route::get('/dashboardd','index')->name('dashboard')->middleware(['permission:view my appartement|view all appartement']);
+    Route::get('/dashboardd','index')->name('dashboard');
     Route::get('properties/{id}','edit')->name('properties.edit')->middleware(['permission:view my appartement|view all appartement']);
     Route::put('/propertiess/{id}','update')->name('properties.update');
     Route::delete('/propertie','destroy')->name('properties.destroy');
@@ -61,7 +61,7 @@ Route::controller(CharacteristicController::class)->middleware((['auth']))->grou
 
 Route::controller(UserController::class)->middleware((['auth']))->group(function(){
     Route::get('allusers','getUsers')->name('allusers.getUsers');
-    
+
 
 });
 Route::controller(HomeController::class)->group(function(){
